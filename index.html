@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yoga Pranava — Hatha Yoga, Meditation & Pranayama in Hyderabad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Work+Sans:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F7F4EC;
+    --ivory-2:#EFEADC;
+    --blue:#1B3E7C;
+    --blue-dark:#122A56;
+    --green:#3C7A44;
+    --green-soft:rgba(60,122,68,0.10);
+    --ink:#1E2430;
+    --navy:#132038;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    letter-spacing:0.01em;
+  }
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--blue);
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(247,244,236,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(30,36,48,0.08);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:12px 32px; max-width:1120px; margin:0 auto;
+  }
+  .wordmark{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Cormorant Garamond', serif; font-size:1.3rem;
+  }
+  .wordmark img{height:46px; width:auto;}
+  .navlinks{display:flex; align-items:center; gap:32px; font-size:0.9rem;}
+  .navlinks a:not(.navcta){position:relative; padding:4px 0;}
+  .navlinks a:not(.navcta)::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1px;
+    background:var(--blue); transition:width .3s ease;
+  }
+  .navlinks a:not(.navcta):hover::after{width:100%;}
+  .navcta{
+    border:1px solid var(--blue); padding:9px 20px; border-radius:2px;
+    font-size:0.85rem; transition:all .25s ease; color:var(--blue);
+  }
+  .navcta:hover{background:var(--blue); color:var(--ivory);}
+  .navtoggle{display:none; background:none; border:none; font-size:1.6rem; cursor:pointer; color:var(--ink);}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    min-height:90vh;
+    display:flex; align-items:center;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 78% 45%, rgba(27,62,124,0.08), transparent 55%),
+      var(--ivory);
+  }
+  .ripple-field{
+    position:absolute; right:-6%; top:50%; transform:translateY(-50%);
+    width:640px; height:640px; pointer-events:none;
+  }
+  .ripple-field svg{width:100%; height:100%;}
+  .ripple-ring{
+    fill:none; stroke:var(--blue); stroke-width:1;
+    transform-origin:center;
+    animation:breathe 6s ease-in-out infinite;
+    opacity:0.5;
+  }
+  .ripple-ring.r2{animation-delay:1.2s; stroke:var(--green); opacity:0.42;}
+  .ripple-ring.r3{animation-delay:2.4s; opacity:0.3;}
+  .ripple-ring.r4{animation-delay:3.6s; stroke:var(--green); opacity:0.2;}
+  @keyframes breathe{
+    0%{transform:scale(0.86); opacity:0;}
+    35%{opacity:0.5;}
+    70%{opacity:0.15;}
+    100%{transform:scale(1.28); opacity:0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ripple-ring{animation:none; opacity:0.3;}
+  }
+  .hero-inner{position:relative; z-index:2; max-width:660px;}
+  .hero .eyebrow{margin-bottom:22px;}
+  .hero h1{
+    font-size:clamp(2.6rem, 5.6vw, 4.4rem);
+    line-height:1.05;
+    color:var(--ink);
+  }
+  .hero h1 em{font-style:italic; color:var(--blue);}
+  .hero p.sub{
+    margin-top:26px; font-size:1.08rem; color:#4a4c52; max-width:480px;
+  }
+  .hero-actions{margin-top:38px; display:flex; gap:18px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:14px 30px; font-size:0.9rem;
+    border-radius:2px; transition:all .25s ease;
+  }
+  .btn-solid{background:var(--blue); color:var(--ivory);}
+  .btn-solid:hover{background:var(--blue-dark);}
+  .btn-outline{border:1px solid var(--ink);}
+  .btn-outline:hover{background:var(--ink); color:var(--ivory);}
+  .btn-green{background:var(--green); color:var(--ivory);}
+  .btn-green:hover{background:#2E5F35;}
+
+  /* PRANAVA MEANING */
+  .meaning{
+    background:var(--navy); color:var(--ivory);
+    padding:110px 0;
+  }
+  .meaning .grid{
+    display:grid; grid-template-columns:0.9fr 1.4fr; gap:70px; align-items:center;
+  }
+  .om-mark{
+    font-family:'Cormorant Garamond', serif; font-size:9rem; line-height:0.8;
+    color:var(--green); font-weight:400;
+  }
+  .meaning h2{font-size:2.3rem; color:var(--ivory); margin-bottom:20px;}
+  .meaning p{color:#C6CEDB; font-size:1.02rem; max-width:520px;}
+  .meaning p + p{margin-top:16px;}
+
+  /* ABOUT INSTRUCTOR */
+  .about{padding:120px 0;}
+  .about .grid{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:start;
+  }
+  .photo-frame{
+    position:relative; border:1px solid rgba(30,36,48,0.15); padding:14px;
+  }
+  .photo-frame img{
+    width:100%;
+  }
+  .photo-frame::before{
+    content:''; position:absolute; top:-10px; left:-10px; right:10px; bottom:10px;
+    border:1px solid var(--blue); z-index:-1;
+  }
+  .about h2{font-size:2.2rem; margin-bottom:8px;}
+  .about .role{font-size:0.95rem; color:var(--blue); font-style:italic; margin-bottom:26px; font-family:'Cormorant Garamond', serif;}
+  .about p{margin-bottom:16px; color:#3c4048; max-width:540px;}
+  .badges{display:flex; gap:14px; margin-top:28px; flex-wrap:wrap;}
+  .badge{
+    border:1px solid rgba(30,36,48,0.18); padding:8px 16px; font-size:0.82rem;
+    font-family:'Space Mono', monospace; letter-spacing:0.02em;
+  }
+
+  /* CLASSES */
+  .classes{background:var(--ivory-2); padding:120px 0;}
+  .classes-head{max-width:600px; margin-bottom:64px;}
+  .classes-head h2{font-size:2.2rem; margin-top:10px;}
+  .class-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(30,36,48,0.14); border:1px solid rgba(30,36,48,0.14);}
+  .class-card{background:var(--ivory-2); padding:44px 34px;}
+  .class-card .mark{color:var(--blue); font-family:'Cormorant Garamond',serif; font-size:2.2rem; margin-bottom:18px; display:block;}
+  .class-card h3{font-size:1.4rem; margin-bottom:12px;}
+  .class-card p{color:#4b4e56; font-size:0.95rem;}
+
+  /* TIMINGS */
+  .timings{padding:120px 0;}
+  .timings-head{max-width:600px; margin-bottom:56px;}
+  .timings-head h2{font-size:2.2rem; margin-top:10px;}
+  .timing-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  .timing-card{
+    border:1px solid rgba(30,36,48,0.14); padding:32px 28px; border-top:3px solid var(--green);
+  }
+  .timing-card h3{font-family:'Space Mono',monospace; font-size:0.85rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--blue); margin-bottom:18px; font-weight:400;}
+  .slot{display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px dashed rgba(30,36,48,0.15); font-size:1rem;}
+  .slot:last-child{border-bottom:none;}
+  .slot .t{font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:var(--ink);}
+
+  /* WHY / PHILOSOPHY */
+  .philosophy{padding:120px 0; background:var(--ivory-2);}
+  .philosophy .grid{display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;}
+  .philosophy h2{font-size:2.2rem; margin-bottom:22px;}
+  .philosophy p{color:#3c4048; margin-bottom:16px; max-width:480px;}
+  .quote-block{
+    border-left:2px solid var(--green); padding-left:28px;
+  }
+  .quote-block p{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1.55rem;
+    color:var(--ink); line-height:1.4;
+  }
+  .quote-block span{display:block; margin-top:18px; font-family:'Space Mono',monospace; font-size:0.78rem; color:var(--green); letter-spacing:0.05em;}
+
+  /* CONTACT */
+  .contact{background:var(--blue); color:var(--ivory); padding:120px 0;}
+  .contact .eyebrow{color:var(--ivory); opacity:0.75;}
+  .contact h2{font-size:2.6rem; margin:14px 0 40px; max-width:600px;}
+  .contact-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:70px;}
+  .info-row{
+    display:flex; gap:18px; padding:20px 0; border-bottom:1px solid rgba(247,244,236,0.22);
+  }
+  .info-row .label{font-family:'Space Mono',monospace; font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.7; width:110px; flex-shrink:0; padding-top:2px;}
+  .info-row .val{font-size:1.05rem;}
+  .info-row a{border-bottom:1px solid rgba(247,244,236,0.4);}
+  .info-row a:hover{border-color:var(--ivory);}
+  .note-box{
+    border:1px solid rgba(247,244,236,0.35); padding:30px; font-size:0.92rem; line-height:1.7;
+  }
+  .note-box .eyebrow{color:var(--ivory); margin-bottom:10px; display:block;}
+  .note-box .btn-green{margin-top:20px;}
+
+  footer{
+    background:var(--ink); color:rgba(247,244,236,0.6);
+    padding:36px 0; font-size:0.82rem; text-align:center;
+  }
+
+  @media (max-width:860px){
+    .navlinks{
+      position:fixed; top:70px; left:0; right:0; background:var(--ivory);
+      flex-direction:column; align-items:flex-start; padding:20px 32px; gap:20px;
+      border-bottom:1px solid rgba(30,36,48,0.1);
+      display:none;
+    }
+    .navlinks.open{display:flex;}
+    .navtoggle{display:block;}
+    .meaning .grid,.about .grid,.philosophy .grid,.contact-grid{grid-template-columns:1fr; gap:40px;}
+    .class-grid,.timing-grid{grid-template-columns:1fr;}
+    .om-mark{font-size:6rem;}
+    .ripple-field{width:420px; height:420px; right:-16%;}
+    .wrap{padding:0 22px;}
+    nav{padding:14px 22px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="wordmark"><img src="logo.png" alt="Yoga Pranava logo"></div>
+    <div class="navlinks" id="navlinks">
+      <a href="#pranava">Pranava</a>
+      <a href="#instructor">Instructor</a>
+      <a href="#classes">Classes</a>
+      <a href="#timings">Timings</a>
+      <a href="#philosophy">Why Yoga</a>
+      <a href="#contact">Contact</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8JnNF1LtkmwYjSm4jp50hQC7xp3n0With9_RgJyjFD_lDLg/viewform?usp=publish-editor" class="navcta" target="_blank" rel="noopener">Register</a>
+    </div>
+    <button class="navtoggle" id="navtoggle" aria-label="Menu">☰</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="ripple-field" aria-hidden="true">
+    <svg viewBox="0 0 400 400">
+      <circle class="ripple-ring r1" cx="200" cy="200" r="60"></circle>
+      <circle class="ripple-ring r2" cx="200" cy="200" r="60"></circle>
+      <circle class="ripple-ring r3" cx="200" cy="200" r="60"></circle>
+      <circle class="ripple-ring r4" cx="200" cy="200" r="60"></circle>
+    </svg>
+  </div>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Hatha Yoga · Meditation · Pranayama — Hyderabad</div>
+    <h1>Begin where the <em>breath</em> begins.</h1>
+    <p class="sub">Yoga Pranava is a small, in-person practice space led by Kedhareswari, built around the oldest teaching in yoga: that steady breath makes a steady mind. Classes for every age and every starting point.</p>
+    <div class="hero-actions">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8JnNF1LtkmwYjSm4jp50hQC7xp3n0With9_RgJyjFD_lDLg/viewform?usp=publish-editor" class="btn btn-solid" target="_blank" rel="noopener">Register for classes</a>
+      <a href="#timings" class="btn btn-outline">See batch timings</a>
+    </div>
+  </div>
+</section>
+
+<section class="meaning" id="pranava">
+  <div class="wrap grid">
+    <div class="om-mark">ॐ</div>
+    <div>
+      <div class="eyebrow" style="color:var(--green)">The name</div>
+      <h2>What "Pranava" means</h2>
+      <p>Pranava is the Sanskrit name for Om — described in the yogic texts as the first sound, the vibration underneath all others. It isn't a symbol you chant at the start of class and forget; it's a reminder that yoga begins with sound and breath before it ever becomes a shape on a mat.</p>
+      <p>The studio takes its name from that idea. Every session — however simple the postures — starts by returning to breath first.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="instructor">
+  <div class="wrap grid">
+    <div class="photo-frame">
+      <img src="instructor.jpg" alt="Kedhareswari, instructor at Yoga Pranava">
+    </div>
+    <div>
+      <div class="eyebrow">Your instructor</div>
+      <h2>Kedhareswari</h2>
+      <div class="role">Founder & Instructor, Yoga Pranava</div>
+      <p>Kedhareswari teaches Hatha Yoga along with meditation and pranayama, with a focus on building a steady, honest practice rather than chasing advanced postures. She is newly certified and brings a beginner's patience to her teaching — every class is paced for people who are just starting out as much as those returning to their mats.</p>
+      <p>Classes are kept small and hands-on, in person, so there's room to correct alignment gently and answer questions as they come up.</p>
+      <div class="badges">
+        <div class="badge">Hatha Yoga</div>
+        <div class="badge">Meditation</div>
+        <div class="badge">Pranayama</div>
+        <div class="badge">All ages welcome</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="classes" id="classes">
+  <div class="wrap">
+    <div class="classes-head">
+      <div class="eyebrow">What's offered</div>
+      <h2>Three ways to begin</h2>
+    </div>
+    <div class="class-grid">
+      <div class="class-card">
+        <span class="mark">आ</span>
+        <h3>Hatha Yoga</h3>
+        <p>Traditional postures held with attention — building strength, flexibility and balance at a pace that suits the body in front of her, not a fixed routine.</p>
+      </div>
+      <div class="class-card">
+        <span class="mark">ध्या</span>
+        <h3>Meditation</h3>
+        <p>Guided sitting practice to quiet a busy mind. Useful on its own, and often taught alongside postures to close a session.</p>
+      </div>
+      <div class="class-card">
+        <span class="mark">प्रा</span>
+        <h3>Pranayama</h3>
+        <p>Breathing techniques at the heart of the practice — the "Pranava" in the studio's name. Learn to use breath deliberately, not just notice it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="timings" id="timings">
+  <div class="wrap">
+    <div class="timings-head">
+      <div class="eyebrow">Batch timings</div>
+      <h2>Pick a slot that fits your morning — or evening</h2>
+    </div>
+    <div class="timing-grid">
+      <div class="timing-card">
+        <h3>Monday – Friday</h3>
+        <div class="slot"><span>Early batch</span><span class="t">5:00 – 6:00 AM</span></div>
+        <div class="slot"><span>Second batch</span><span class="t">6:00 – 7:00 AM</span></div>
+      </div>
+      <div class="timing-card">
+        <h3>Sunday Morning</h3>
+        <div class="slot"><span>Early batch</span><span class="t">6:00 – 7:00 AM</span></div>
+        <div class="slot"><span>Second batch</span><span class="t">8:00 – 9:00 AM</span></div>
+      </div>
+      <div class="timing-card">
+        <h3>Sunday Evening</h3>
+        <div class="slot"><span>Evening batch</span><span class="t">4:30 – 6:00 PM</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="philosophy" id="philosophy">
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow">Why yoga, why here</div>
+      <h2>A practice, not a performance</h2>
+      <p>Yoga Pranava isn't built around difficulty or flexibility as a goal. It's built around consistency — showing up, breathing properly, and letting the body change on its own timeline.</p>
+      <p>Classes are held in person and kept small, so there's real attention on form and breath rather than a room full of people following along at a distance.</p>
+    </div>
+    <div class="quote-block">
+      <p>"Yoga does not begin with the pose. It begins with the breath that carries you into it."</p>
+      <span>— THE PRINCIPLE BEHIND EVERY CLASS AT YOGA PRANAVA</span>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Get in touch</div>
+    <h2>Classes are offline, in Hyderabad. Register below or call to check fees.</h2>
+    <div class="contact-grid">
+      <div>
+        <div class="info-row">
+          <div class="label">Phone</div>
+          <div class="val"><a href="tel:+919381944899">+91 93819 44899</a></div>
+        </div>
+        <div class="info-row">
+          <div class="label">Email</div>
+          <div class="val"><a href="mailto:yogapranavaofficial@gmail.com">yogapranavaofficial@gmail.com</a></div>
+        </div>
+        <div class="info-row">
+          <div class="label">Address</div>
+          <div class="val">202, A38, Singapore Township,<br>Pocharam, Hyderabad – 500088</div>
+        </div>
+        <div class="info-row">
+          <div class="label">Format</div>
+          <div class="val">In-person (offline) classes — see batch timings above</div>
+        </div>
+      </div>
+      <div class="note-box">
+        <span class="eyebrow">Ready to join?</span>
+        Fill out the registration form and Kedhareswari will confirm your batch and share fee details directly.
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8JnNF1LtkmwYjSm4jp50hQC7xp3n0With9_RgJyjFD_lDLg/viewform?usp=publish-editor" class="btn btn-green" target="_blank" rel="noopener" style="width:100%; text-align:center;">Open registration form</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Yoga Pranava — Hyderabad · yogapranava.com
+</footer>
+
+<script>
+  const toggle = document.getElementById('navtoggle');
+  const links = document.getElementById('navlinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+</script>
+
+</body>
+</html>
