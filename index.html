@@ -85,6 +85,15 @@
       radial-gradient(circle at 78% 45%, rgba(27,62,124,0.08), transparent 55%),
       var(--ivory);
   }
+  .hero-photo{
+    position:absolute; right:2%; top:50%; transform:translateY(-50%);
+    width:440px; height:440px; border-radius:50%; overflow:hidden;
+    box-shadow:0 30px 70px rgba(27,62,124,0.18);
+    z-index:1;
+  }
+  .hero-photo img{
+    width:100%; height:100%; object-fit:cover;
+  }
   .ripple-field{
     position:absolute; right:-6%; top:50%; transform:translateY(-50%);
     width:640px; height:640px; pointer-events:none;
@@ -244,6 +253,7 @@
     .class-grid,.timing-grid{grid-template-columns:1fr;}
     .om-mark{font-size:6rem;}
     .ripple-field{width:420px; height:420px; right:-16%;}
+    .hero-photo{display:none;}
     .wrap{padding:0 22px;}
     nav{padding:14px 22px;}
   }
